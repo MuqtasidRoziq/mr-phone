@@ -31,7 +31,7 @@ def cek_data():
     cur.execute('SELECT 1')
     return jsonify({'message' : 'berhasil'})
 
-@app.route('/list-product')
+@app.route('/product')
 def homepage():
     cur = mysql.connection.cursor()
     query = '''
@@ -41,7 +41,7 @@ def homepage():
     '''
     cur.execute(query)
     product = cur.fetchall()
-    return render_template('list-product.html', produk=product)
+    return render_template('product.html', produk=product)
 
 @app.route('/card-product')
 def card_product():
@@ -81,9 +81,9 @@ def save_product():
     return redirect('/add-product')
 
 
-@app.route('/aboutpage')
+@app.route('/about')
 def aboutpage():
-    return render_template('about-page.html')
+    return render_template('about.html')
 
 
 
