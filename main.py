@@ -85,5 +85,13 @@ def save_product():
 def aboutpage():
     return render_template('about.html')
 
+@app.route('/seacrh-product', methods=['GET'])
+def seacrh_product():
+    keyword = request.args.get('keyword', '') 
+    cur = mysql.connection.cursor()
+    query = 'SELECT * FROM product WHERE name_product LIKE %s'
+    cur.execute(query , (f"%{keyword}%",))
+    search = cur.fetchall()
+    return render_template('product.html',search=search)    
 
 
