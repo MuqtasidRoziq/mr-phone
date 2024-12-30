@@ -1,0 +1,35 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %} Halaman Form Product {% endblock %}
+
+{% block content %}
+
+<h3 style="padding-top: 100px;">Edit Product</h3>
+
+<div class="container d-flex border border-primary p-5">
+    <form action="/update-product/{{ produk[0] }}" method="post">
+    <input type="text"  value="{{ produk [1] }}" name="name_product" placeholder="Masukan Nama Product" required>
+    <input type="text" value="{{produk[2]}}" name="image_url" placeholder="Masukan URL Image" required>
+    <input type="number" value="{{produk[3]}}" name="price" placeholder="Masukan Harga" required>
+
+    <select name="category" required>
+        <option value="{{ produk [4] }}"> {{ produk [4] }} </option>
+        {% for category in category %}
+            <option value="{{ category[0] }}">{{ category[1] }}</option>
+        {% endfor %}
+    </select>
+
+    <select name="in_stok" required>
+        <option value="{{produk[5]}}">{{ produk[5] }}</option>
+        <option value="1">Tersedia</option>
+        <option value="0">Tidak Tersedia</option>
+    </select>
+</div>
+
+
+    <!-- <input type="number" name="category" placeholder="Masukan Category">
+    <input type="number" name="in_stok" placeholder="Masukan Stok"> -->
+    <button type="submit">edit data</button>
+</form>
+
+{% endblock %}

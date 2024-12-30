@@ -79,6 +79,39 @@ def save_product():
     mysql.connection.commit()
     return redirect('/add-product')
 
+@app.route('/edit-product/<int:id>')
+def edit_product(id):
+    cur = mysql.connection.cursor()
+    query = 'SELECT * FROM product WHERE id = %s'
+    cur.execute(query, [id])
+    product = cur.fetchone() 
+    sql = 'SELECT * FROM category'
+    cur.execute(sql)
+    category = cur.fetchall()
+    return render_template('edit-product.html', produk=product, category=category)
+
+@app.route('/update-product/<int:id>', methods=['POST'])
+def update_product(id):
+    name_product = request.form['name_product']
+    image_URL = request.form['image_url']
+    price = request.form['price']
+    category = request.form['category']
+    in_stok = request.form['in_stok']
+    cur = mysql.connection.cursor()
+    query = 'UPDATE product SET name_product = %s, image_url = %s, price = %s, category = %s, in_stok = %s WHERE id = %s'
+    cur.execute(query,(name_product, image_URL, price, category,in_stok, id))
+    mysql.connection.commit()
+    flash('Data berhasil diupdate', 'success')
+    return redirect('/add-product')
+
+@app.route('/delete-product/<int:id>')
+def delete_product(id):
+    cur = mysql.connection.cursor()
+    query = 'DELETE FROM product WHERE id = %s'
+    cur.execute(query, [id])
+    mysql.connection.commit()
+    flash('Data berhasil dihapus', 'success')
+    return redirect('/add-product')
 
 @app.route('/about')
 def aboutpage():
