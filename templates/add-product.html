@@ -4,12 +4,18 @@
 {%block content%} 
 
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 {% with messages = get_flashed_messages(with_categories=true) %}
     {% if messages %}   
         {% for category, message in messages %}
            <script>
-                swal("Good job!", "You clicked the button!", "success");
+                Swal.fire({
+                    position: "top-end",
+                    icon: "success",
+                    title: "{{ message }}",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
            </script>
         {% endfor %}
     {% endif %}
@@ -77,6 +83,10 @@
                                             <option value="1">Tersedia</option>
                                             <option value="0">Tidak Tersedia</option>
                                         </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label class="mb-2" for="form-label">Deskripsi</label>
+                                        <input type="text" name="deskripsi" class="form-control" placeholder="Masukan Deskripsi">
                                     </div>
                                 </div>
                                 <div class="modal-footer">

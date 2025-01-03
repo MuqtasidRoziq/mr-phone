@@ -6,3 +6,8 @@
     font-weight: weight;
     font-style: normal;
 }
+
+.card:hover{
+    transform: scale(1.03);
+    transition: 0.5s;
+}

@@ -17,12 +17,12 @@
                     <tr>
                         <td>{{ produk[1] }}</td>
                         <td><img src="{{produk[2]}}" alt="" width="50px"></td>
-                        <td>{{ produk[3] }}</td>
-                        <td>{{ produk[6] }}</td>
+                        <td>Rp.{{ produk[3] }}</td>
+                        <td>{{ produk[7] }}</td>
                         <td>{{ 'Tersedia' if produk[5] == True else 'Tidak tersedia'}}</td>
                         <td>
-                            <a href="/edit-product/{{ produk[0] }}" class="btn btn-warning">Edit</a>
-                            <a href="/delete-product/{{ produk[0] }}" class="btn btn-danger">Delete</a>
+                            <a href="/edit-product/{{ produk[0] }}" class="btn btn-warning m-1">Edit</a>
+                            <a href="/delete-product/{{ produk[0] }}" class="btn btn-danger m-1">Delete</a>
                         </td>
                     </tr>
                     {% endfor %}

@@ -15,9 +15,34 @@
         <li class="nav-item me-3">
           <a class="nav-link text-light" href="/about">About</a>
         </li>
-        <li class="nav-item me-3">
-          <a class="nav-link text-light" href="/product">Product</a>
-        </li>
+        {% if session.get('admin') %}
+          <li class="nav-item dropdown me-3">
+            <a class="nav-link dropdown-toggle text-light" href="#" id="productDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Product
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="productDropdown">
+              <li>
+                <a class="dropdown-item" href="/product">Product</a>
+              </li>
+              <li>
+                <a class="dropdown-item" href="/add-product">Add Product</a>
+              </li>
+            </ul>
+          </li>
+        {% else %}
+          <li class="nav-item me-3">
+            <a class="nav-link text-light" href="/product">Product</a>
+          </li>  
+        {% endif %}
+        {% if session.get('admin')%}
+          <div class="me-3">
+            <a class="btn btn-outline-danger text-light" href="/logout" role="button">Logout</a>
+          </div>        
+        {% else %}
+          <div class="me-3">
+            <a class="btn btn-outline-success text-light" href="/login" role="button">Login</a>
+          </div>        
+        {% endif %}
       </ul>
     </div>
   </div>

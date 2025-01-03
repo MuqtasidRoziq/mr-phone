@@ -11,17 +11,15 @@
         <title>{%block title%}Halaman Utama{%endblock%}</title>
     </head>
     <body>
-        <div class="wraper">
-            <header>
-                {%include 'layouts/component/navbar.html' %}
-            </header>
-            <main>
-                {%block content%} {%endblock%}
-            </main>
-            <footer>
-                {%include 'layouts/component/footer.html' %}
-            </footer>
-        </div>
+        <header>
+            {%include 'layouts/component/navbar.html' %}
+        </header>
+        <main>
+            {%block content%} {%endblock%}
+        </main>
+        <footer>
+            {%include 'layouts/component/footer.html' %}
+        </footer>
         <script>
             $(document).ready( function () {
                 $('#myTable').DataTable();

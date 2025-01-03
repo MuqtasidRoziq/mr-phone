@@ -3,64 +3,68 @@
 {%block content%}
 <section>
     <div class="container" style="margin-top: 140px;">
+        <!-- BAG-1 -->
         <div class="row">
-            <div class="col">
-                <!-- BAG -1  -->
-                <div class="d-flex">
-                    <div class="p-2 flex-shrink-1">
-                        <div class="text-end">
-                            <img src="/static/image/iphone16-removebg-preview.png" class="rounded" alt="background hp">
-                        </div> 
-                    </div>
-                    <div class="p-2 w-100">
-                        <h2>Mr Phone</h2>
-                        <p>Kami adalah solusi terpercaya untuk semua kebutuhan gadget Anda. 
-                            Sejak berdiri pada tahun 2024, Mr Phone telah berkomitmen 
-                            untuk menyediakan berbagai produk handphone dan aksesori terbaik dengan 
-                            harga kompetitif serta pelayanan yang ramah dan profesional.
-                        </p>
-                        <h2>Visi Kami</h2> 
-                        <p>Menjadi pemimpin dalam industri teknologi, menyediakan pengalaman belanja 
-                            smartphone yang inovatif, mudah, dan terpercaya bagi semua pelanggan kami.
-                        </p>   
-                        <h2>Misi Kami</h2>
-                        <p> Memberikan produk handphone terbaru dari merek-merek ternama dengan kualitas terbaik.
-                            Menyediakan layanan pelanggan yang cepat, responsif, dan memuaskan.
-                            Mendukung gaya hidup modern dengan teknologi mutakhir dan layanan yang fleksibel.</p>
-                    </div>
+            <div class="col-12 col-md-5">
+                <div class="p-2">
+                    <div class="text-end">
+                        <img src="/static/image/iphone16-removebg-preview.png" class="rounded" alt="background hp" width="100%">
+                    </div> 
                 </div>
-                <!-- BAG - 2 -->
-                <div class="d-flex">
-                    <div class="p-2 w-100">
-                        <h2>Apa yang Membuat Kami Berbeda?</h2>
-                        <table class="table">
-                            <tbody>
-                                <tr>
-                                    <td>Kami menyediakan pilihan smartphone dari berbagai merek ternama untuk memenuhi semua kebutuhan Anda</td>
-                                </tr>
-                                <tr>
-                                    <td>Setiap produk yang kami tawarkan dijamin 100% asli dengan garansi resmi</td>
-                                </tr>
-                                <tr>
-                                    <td>Dengan proses belanja yang mudah, metode pembayaran fleksibel, dan pengiriman cepat, kami memberikan kenyamanan di setiap langkah</td>
-                                </tr>
-                                <tr>
-                                    <td>Tim layanan pelanggan kami siap membantu Anda dengan solusi cepat dan tepat</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="p-2 flex-shrink-1">
-                        <div class="text-end">
-                            <img src="/static/image/ssA55.png" class="rounded" alt="background hp">
-                        </div> 
-                    </div>
-                </div>
-                <div class="service">
-                    {%include 'layouts/component/service.html' %}
+            </div>    
+            <div class="col-12 col-md-7 d-flex align-items-center">
+                <div class="p-2 w-100">
+                    <h2>Mr Phone</h2>
+                    <p>Kami adalah solusi terpercaya untuk semua kebutuhan gadget Anda. 
+                        Sejak berdiri pada tahun 2024, Mr Phone telah berkomitmen 
+                        untuk menyediakan berbagai produk handphone dan aksesori terbaik dengan 
+                        harga kompetitif serta pelayanan yang ramah dan profesional.
+                    </p>
+                    <h2>Visi Kami</h2> 
+                    <p>Menjadi pemimpin dalam industri teknologi, menyediakan pengalaman belanja 
+                        smartphone yang inovatif, mudah, dan terpercaya bagi semua pelanggan kami.
+                    </p>   
+                    <h2>Misi Kami</h2>
+                    <p> Memberikan produk handphone terbaru dari merek-merek ternama dengan kualitas terbaik.
+                        Menyediakan layanan pelanggan yang cepat, responsif, dan memuaskan.
+                        Mendukung gaya hidup modern dengan teknologi mutakhir dan layanan yang fleksibel.</p>
                 </div>
             </div>
         </div>
-    </div>
+        <!-- BAG-2 -->
+        <div class="row">
+            <div class="col-12 col-md-7 d-flex align-items-center">
+                <div class="p-2 w-100">
+                    <h2>Apa yang Membuat Kami Berbeda?</h2>
+                    <table class="table">
+                        <tbody>
+                            <tr>
+                                <td>Kami menyediakan pilihan smartphone dari berbagai merek ternama untuk memenuhi semua kebutuhan Anda</td>
+                            </tr>
+                            <tr>
+                                <td>Setiap produk yang kami tawarkan dijamin 100% asli dengan garansi resmi</td>
+                            </tr>
+                            <tr>
+                                <td>Dengan proses belanja yang mudah, metode pembayaran fleksibel, dan pengiriman cepat, kami memberikan kenyamanan di setiap langkah</td>
+                            </tr>
+                            <tr>
+                                <td>Tim layanan pelanggan kami siap membantu Anda dengan solusi cepat dan tepat</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>    
+            <div class="col-12 col-md-5">
+                <div class="p-2">
+                    <div class="text-end">
+                        <img src="/static/image/ssA55.png" class="rounded" alt="background hp" width="100%">
+                    </div> 
+                </div>
+            </div>
+        </div>
+        <div class="service">
+            {% include 'layouts/component/service.html'%}
+        </div>
+    </div>    
 </section>
 {%endblock%}
