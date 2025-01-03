@@ -1,4 +1,4 @@
-Web Company Profile Menggunakan Flask and Boostraps
+Web Company Profile Menggunakan Flask and Bootsrap
 
 preview result design
 ![Screenshot 2024-12-27 143812](https://github.com/user-attachments/assets/1aa8695c-bcab-4b56-97c7-458b7f41806d)
