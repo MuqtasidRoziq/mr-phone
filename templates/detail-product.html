@@ -16,9 +16,9 @@
                 <div class="p-2 w-100">
                     <div class="title mt-4">
                         <h1>{{ detail[1] }}</h1>
-                        <h5>Harga : Rp.{{ detail[3] }}</h5>
+                        <h5>Harga : Rp.{{ detail[3] | rupiah }}</h5>
                         <p>Stok  : {{'Tidak Tersedia' if produk[5] == True else 'Tersedia'}}</p>
-                        <p>Spesifikasi</p>
+                        <p>Detail</p>
                         <p class="lh-1">{{ detail[6] }}</p>
                     </div>
                 </div>

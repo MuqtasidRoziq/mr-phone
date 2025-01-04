@@ -1,7 +1,5 @@
 {% extends 'layouts/base.html' %}
-
-{% block title %} Halaman Form Product {% endblock %}
-
+{% block title %} Edit Produk {% endblock %}
 {% block content %}
 <section style="margin-top: 150px;">
     <div class="container">
@@ -20,7 +18,7 @@
                     </div>
                     <div class="mb-3">
                         <label for="formGroupExampleInput2" class="form-label">Harga</label>
-                        <input type="text" class="form-control" id="formGroupExampleInput2" value="{{produk[3]}}" name="price" placeholder="Masukan link gambar">
+                        <input type="number" class="form-control" id="formGroupExampleInput2" value="{{produk[3]}}" name="price" placeholder="Masukan link gambar">
                     </div>
                     <div class="row">
                         <div class="col-12 col-md-6 mb-3">

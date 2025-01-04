@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, jsonify, flash, session
+from flask import Flask, render_template, request, redirect, jsonify, flash, session
 from flask_mysqldb import MySQL
 
 app = Flask(__name__)
@@ -15,6 +15,19 @@ mysql = MySQL(app)
 # Route User Default
 @app.route('/')
 def home():
+    cur = mysql.connection.cursor()
+    query = '''
+    SELECT product.*, category.name_category 
+    FROM product INNER JOIN category
+    ON product.category = category.id_category
+    '''
+    cur.execute(query)
+    product = cur.fetchall()
+    return render_template('home.html', produk = product)
+
+# Route User Admin
+@app.route('/home-admin')
+def home_admin():
     cur = mysql.connection.cursor()
     query = '''
     SELECT product.*, category.name_category 
@@ -43,7 +56,7 @@ def login():
 
         if admin:
             session['admin'] = True
-            return redirect('/')
+            return redirect('/home-admin')
         else:
             flash('Username atau Password salah', 'error')
             return redirect('/login')
@@ -60,6 +73,11 @@ def cek_data():
     cur = mysql.connection.cursor()
     cur.execute('SELECT 1')
     return jsonify({'message' : 'berhasil'})
+
+# Route Rupiah
+@app.template_filter('rupiah')
+def format_rupiah(value):
+    return f"{value:,}".replace(',', '.')
 
 # Route produk
 @app.route('/product')
@@ -112,7 +130,7 @@ def save_product():
     query = 'INSERT INTO product (name_product, image_url, price, category, in_stok, detail_product) VALUES (%s, %s, %s, %s, %s, %s)'
     cur.execute(query,(name_product, image_URL, price, category,in_stok, deskripsi))
     mysql.connection.commit()
-    flash('Data berhasil disimpan', 'success')
+    flash('Product berhasil disimpan', 'success')
     return redirect('/add-product')
 
 # routw edit product
@@ -147,18 +165,21 @@ def update_product(id):
     WHERE id = %s'''
     cur.execute(query,(name_product, image_URL, price, category, in_stok, deskripsi, id))
     mysql.connection.commit()
-    flash('Data berhasil diupdate', 'success')
+    flash('Produk berhasil diupdate', 'success')
     return redirect('/add-product')
 
 # route delete product
 @app.route('/delete-product/<int:id>')
 def delete_product(id):
-    cur = mysql.connection.cursor()
-    query = 'DELETE FROM product WHERE id = %s'
-    cur.execute(query, [id])
-    mysql.connection.commit()
-    flash('Data berhasil dihapus', 'success')
-    return redirect('/add-product')
+    try:
+        cur = mysql.connection.cursor()
+        query = 'DELETE FROM product WHERE id = %s'
+        cur.execute(query, [id])
+        mysql.connection.commit()
+        flash('Produk berhasil dihapus', 'success')
+    except Exception as e:
+        flash(f'Produk gagal dihapus {str(e)}', 'error')
+    return redirect('/add-product')    
 
 # route about
 @app.route('/about')
@@ -190,3 +211,14 @@ def detail_produk(id):
     cur.execute(query_produk)
     produk = cur.fetchall()
     return render_template('detail-product.html', detail=product_detail, produk=produk)
+
+# Route Hubungi Kami
+@app.route('/contact' , methods=['POST'])
+def contact():
+    nama = request.form['nama']
+    email = request.form['email']
+    pesan = request.form['pesan']
+
+    format_pesan = f"Nama: {nama}, Email: {email}, Pesan: {pesan}"
+    url_wa = f"https://wa.me/+6287880772495?text={format_pesan.replace(' ', '%20')}"
+    return redirect(url_wa)
