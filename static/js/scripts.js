@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 text: "Produk ini akan dihapus secara permanen!",
                 icon: "warning",
                 showCancelButton: true,
-                confirmButtonColor: "#success",
+                confirmButtonColor: "#008000",
                 cancelButtonColor: "#d33",
                 confirmButtonText: "Delete!",
                 cancelButtonText: "Cancel"

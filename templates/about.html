@@ -1,9 +1,9 @@
 {% extends 'layouts/base.html' %}
 {%block title%}About {%endblock%} 
 {%block content%}
+<!-- BAG-1 -->
 <section>
     <div class="container" style="margin-top: 140px;">
-        <!-- BAG-1 -->
         <div class="row">
             <div class="col-12 col-md-5">
                 <div class="p-2">
@@ -31,7 +31,11 @@
                 </div>
             </div>
         </div>
-        <!-- BAG-2 -->
+    </div>    
+</section>
+<!-- BAG 2 -->
+<section>
+    <div class="container">
         <div class="row">
             <div class="col-12 col-md-7 d-flex align-items-center">
                 <div class="p-2 w-100">
@@ -62,12 +66,59 @@
                 </div>
             </div>
         </div>
-        <div class="service">
-            {% include 'layouts/component/service.html'%}
-        </div>
-        <div class="row">
-            
-        </div>
-    </div>    
+    </div>
 </section>
+<!-- TABLE SERVICE -->
+<section>
+    {%include 'layouts/component/service.html'%}
+</section>
+<!-- HUBUNGI KAMI -->
+<section class="kritik-saran-container py-5 mt-5">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 mb-4">
+                <h3 >Kontak Kami</h3>
+                <p><i class="fas fa-map-marker-alt me-2"></i> Tegal, Indonesia</p>
+                <p><i class="fas fa-phone me-2"></i> +62-87880772494</p>
+                <p><i class="fas fa-envelope me-2"></i> mrphone@gmail.com</p>
+                <p><i class="fas fa-clock me-2"></i> 24 JAM</p>
+            </div>
+            <div class="col-md-7 mb-5">
+                <div class="card shadow-lg">
+                    <div class="card-body">
+                        <h4 class="card-title text-center mb-4">Kritik dan Saran</h4>
+                        <form action="" method="post">
+                            <div class="mb-3">
+                                <label for="nama" class="form-label">Nama</label>
+                                <input type="text" id="nama" class="form-control" placeholder="Masukkan Nama" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" id="email" class="form-control" placeholder="name@example.com" required>
+                            </div>
+                            <div class="mb-3">
+                                <label for="pesan" class="form-label">Pesan</label>
+                                <textarea id="pesan" rows="4" class="form-control" placeholder="Tulis pesan Anda" required></textarea>
+                            </div>
+                            <div class="d-grid">
+                                <button type="submit" class="btn btn-primary">Kirim</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-5">
+            <div class="col">
+                <h4 class="text-center mb-4">Lokasi Kami</h4>
+                <div class="ratio ratio-16x9 shadow">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3958.9244577360696!2d109.204703!3d-6.8680577!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e6fc7004aa52793%3A0x90eaf7d506ae2eb3!2sMuqtasid%20Roziq!5e0!3m2!1sen!2sid!4v1673353478967!5m2!1sen!2sid"
+                        allowfullscreen="" loading="lazy" style="border:0;"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 {%endblock%}

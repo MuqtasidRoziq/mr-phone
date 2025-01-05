@@ -1,4 +1,4 @@
-    <div class="container" >
+<div class="container">
     <div class="row">
         <div class="col">
             <table class="table table-hover" id="myTable">
@@ -21,10 +21,61 @@
                         <td>{{ produk[7] }}</td>
                         <td>{{ 'Tersedia' if produk[5] == True else 'Tidak tersedia'}}</td>
                         <td>
-                            <a href="/edit-product/{{ produk[0] }}" class="btn btn-warning m-1">Edit</a>
+                            <button class="btn btn-warning m-1" data-bs-toggle="modal" data-bs-target="#editProdukModal{{ produk[0] }}">
+                                Edit
+                            </button>
                             <a href="/delete-product/{{ produk[0] }}" class="btn btn-danger m-1 delete-button"> Delete</a>
                         </td>
                     </tr>
+                    <!-- MODAL EDIT PRODUK -->
+                    <div class="modal fade" id="editProdukModal{{ produk[0] }}" tabindex="-1" aria-labelledby="editProdukModalLabel{{ produk[0] }}" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="editProdukModalLabel{{ produk[0] }}">Edit Produk</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <form action="/update-product/{{ produk[0] }}" method="post">
+                                        <div class="mb-3">
+                                            <label class="form-label">Nama Produk</label>
+                                            <input type="text" class="form-control" name="name_product" value="{{ produk[1] }}">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Link Gambar</label>
+                                            <input type="text" class="form-control" name="image_url" value="{{ produk[2] }}">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Harga</label>
+                                            <input type="number" class="form-control" name="price" value="{{ produk[3] }}">
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Kategori</label>
+                                            <select name="category" class="form-control" >
+                                                <option selected value="{{ produk[4] }}">{{ produk[7] }}</option>
+                                                {% for kategori in kategori %}
+                                                <option value="{{ kategori[0] }}">{{ kategori[1] }}</option>
+                                                {% endfor %}
+                                            </select>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Stok</label>
+                                            <select name="in_stok" class="form-control">
+                                                <option value="1" {% if produk[5] %}selected{% endif %}>Tersedia</option>
+                                                <option value="0" {% if not produk[5] %}selected{% endif %}>Tidak Tersedia</option>
+                                            </select>
+                                        </div>
+                                        <div class="mb-3">
+                                            <label class="form-label">Deskripsi</label>
+                                            <textarea class="form-control" name="deskripsi">{{ produk[6] }}</textarea>
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Save</button>
+                                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     {% endfor %}
                 </tbody>
             </table>

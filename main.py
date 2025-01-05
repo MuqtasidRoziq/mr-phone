@@ -133,18 +133,6 @@ def save_product():
     flash('Product berhasil disimpan', 'success')
     return redirect('/add-product')
 
-# routw edit product
-@app.route('/edit-product/<int:id>')
-def edit_product(id):
-    cur = mysql.connection.cursor()
-    query = 'SELECT * FROM product WHERE id = %s'
-    cur.execute(query, [id])
-    product = cur.fetchone() 
-    sql = 'SELECT * FROM category'
-    cur.execute(sql)
-    category = cur.fetchall()
-    return render_template('edit-product.html', produk=product, kategori=category)
-
 # roiute save update product in edit product
 @app.route('/update-product/<int:id>', methods=['POST'])
 def update_product(id):
@@ -186,16 +174,6 @@ def delete_product(id):
 def aboutpage():
     return render_template('about.html')
 
-# route search
-@app.route('/search')
-def search():
-    keyword = request.args.get('keyword')
-    cur = mysql.connection.cursor()
-    query = "SELECT * FROM product WHERE name_product LIKE %s"
-    cur.execute(query, ['%' + keyword + '%'])
-    product = cur.fetchall()
-    return render_template('search.html', produk=product) 
-
 # route detail product
 @app.route('/detail-produk/<int:id>')
 def detail_produk(id):
@@ -212,13 +190,14 @@ def detail_produk(id):
     produk = cur.fetchall()
     return render_template('detail-product.html', detail=product_detail, produk=produk)
 
-# Route Hubungi Kami
-@app.route('/contact' , methods=['POST'])
-def contact():
-    nama = request.form['nama']
-    email = request.form['email']
-    pesan = request.form['pesan']
-
-    format_pesan = f"Nama: {nama}, Email: {email}, Pesan: {pesan}"
-    url_wa = f"https://wa.me/+6287880772495?text={format_pesan.replace(' ', '%20')}"
-    return redirect(url_wa)
+# route search
+@app.route('/search')
+def search():
+    keyword = request.args.get('keyword', '')
+    if not keyword:
+        return redirect('/product')
+    cur = mysql.connection.cursor()
+    query = "SELECT * FROM product WHERE name_product LIKE %s"
+    cur.execute(query, ('%' + keyword + '%',))
+    search_results = cur.fetchall()
+    return render_template('search.html', produk=search_results, keyword=keyword)
