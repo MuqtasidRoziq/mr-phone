@@ -57,19 +57,19 @@
                                 <div class="modal-body">
                                     <div class="mb-3">
                                         <label class="mb-2" for="form-label">Nama Produk</label>
-                                        <input type="text" name="name_product" class="form-control " placeholder="Masukan Nama Produk">
+                                        <input type="text" name="name_product" class="form-control " placeholder="Masukan Nama Produk" required>
                                     </div>
                                     <div class="mb-3">
                                         <label class="mb-2" for="form-label">Link Gambar</label>
-                                        <input type="text" name="image_url" class="form-control" placeholder="Masukan Link Gambar">
+                                        <input type="text" name="image_url" class="form-control" placeholder="Masukan Link Gambar" required>
                                     </div>
                                     <div class="mb-3">
                                         <label class="mb-2" for="form-label">Harga</label>
-                                        <input type="number" name="price" class="form-control" placeholder="Masukan Harga">
+                                        <input type="number" name="price" class="form-control" placeholder="Masukan Harga" required>
                                     </div>
                                     <div class="mb-3">
                                         <label class="mb-2" for="form-label">Kategory</label>
-                                        <select name="category" class="form-control">
+                                        <select name="category" class="form-control" required>
                                             <option selected>-- Pilih Kategori --</option>
                                             {% for kategori in kategori%}
                                             <option value="{{ kategori[0] }}">{{ kategori[1] }}</option>
@@ -78,15 +78,15 @@
                                     </div>
                                     <div class="mb-3">
                                         <label class="mb-2" for="form-label">Stok</label>
-                                        <select name="in_stok" class="form-control">
+                                        <select name="in_stok" class="form-control" required>
                                             <option selected>-- Pilih Stok --</option>
                                             <option value="1">Tersedia</option>
                                             <option value="0">Tidak Tersedia</option>
                                         </select>
                                     </div>
                                     <div class="mb-3">
-                                        <label class="mb-2" for="form-label">Deskripsi</label>
-                                        <input type="text" name="deskripsi" class="form-control" placeholder="Masukan Deskripsi">
+                                        <label class="mb-2" for="form-label" >Deskripsi</label>
+                                        <input type="text" name="deskripsi" class="form-control" placeholder="Masukan Deskripsi" required>
                                     </div>
                                 </div>
                                 <div class="modal-footer">

@@ -197,7 +197,12 @@ def search():
     if not keyword:
         return redirect('/product')
     cur = mysql.connection.cursor()
-    query = "SELECT * FROM product WHERE name_product LIKE %s"
-    cur.execute(query, ('%' + keyword + '%',))
+    query = '''
+    SELECT product.*, category.name_category 
+    FROM product INNER JOIN category
+    ON product.category = category.id_category
+    WHERE product.name_product LIKE %s OR category.name_category LIKE %s
+    '''
+    cur.execute(query, ('%' + keyword + '%', '%' + keyword + '%'))
     search_results = cur.fetchall()
     return render_template('search.html', produk=search_results, keyword=keyword)
