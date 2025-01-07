@@ -6,7 +6,7 @@ Admin Bisa Menambahkan Mengedit dan Menghapus Produk
 
 Pengunjung Hanya Bisa Melihat Profile Company dan Melihat Produk Serta Detail Produk
 
-preview result design : 
+Preview Web
 
 Login Admin :  
 
