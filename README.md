@@ -7,8 +7,10 @@ Admin Bisa Menambahkan Mengedit dan Menghapus Produk
 Pengunjung Hanya Bisa Melihat Profile Company dan Melihat Produk Serta Detail Produk
 
 preview result design : 
+
 Login Admin :  
 ![Screenshot 2025-01-08 034515](https://github.com/user-attachments/assets/869256f6-ec2e-474d-b303-6e2a6a317f6f)
+
 CRUD Admin : 
 ![Screenshot 2025-01-08 034536](https://github.com/user-attachments/assets/52f1c9de-be1d-4eb2-93b3-68ce8e7c6844)
 ![Screenshot 2025-01-08 034649](https://github.com/user-attachments/assets/eab50ce1-81ee-43d9-a8b4-78d10e1a7c2a)
