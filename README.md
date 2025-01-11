@@ -1,6 +1,6 @@
-Web Company Profile Menggunakan Flask and Bootsrap
+Web Company Profile Menggunakan Flask dan Bootsrap
 
-User Admin dan Pengunjung
+User : Admin dan Pengunjung
 
 Admin Bisa Menambahkan Mengedit dan Menghapus Produk
 
